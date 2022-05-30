@@ -7,6 +7,7 @@ export interface Ibook {
   title: string;
   authors: string[];
   publishingCompany?: string;
+  saved: boolean;
 }
 
 interface IbookData {
@@ -25,14 +26,14 @@ interface IbookData {
   };
 }
 
-export const Home: FC = () => {
+export const Home: FC = ():JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const [books, setBooks] = useState<Ibook[]>([]);
   const [error, setError] = useState<string>('');
 
   const handleSearch = async (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent
-  ) => {
+  ): Promise<void> => {
     e.preventDefault();
     if (!query) {
       setError('please enter a search term');
@@ -57,7 +58,8 @@ export const Home: FC = () => {
           id: item.id,
           title: item.volumeInfo.title,
           authors: item.volumeInfo.authors,
-          publishingCompany: item.volumeInfo.publisher
+          publishingCompany: item.volumeInfo.publisher,
+          saved: false
         };
         bookList.push(bookObj);
       });
@@ -96,13 +98,15 @@ export const Home: FC = () => {
       </button>
       {books &&
         books.map((book, i) => (
-          <Book
-            id={book.id}
-            title={book.title}
-            authors={book.authors}
-            publishingCompany={book.publishingCompany}
-            key={i}
-          />
+          <div key={i}>
+            <Book
+              id={book.id}
+              title={book.title}
+              authors={book.authors}
+              publishingCompany={book.publishingCompany}
+              saved={book.saved}
+            />
+          </div>
         ))}
     </div>
   );

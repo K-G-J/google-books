@@ -1,8 +1,9 @@
 import { FC, useEffect, useState } from 'react';
+import Book from '../components/Book';
 import { Ibook } from '../pages/Home';
 import { loadBooks } from '../utils/loadBooks';
 
-export const ReadingList: FC = () => {
+export const ReadingList: FC = (): JSX.Element => {
   const [savedBooks, setSavedBooks] = useState<Ibook[]>([]);
 
   useEffect(() => {
@@ -24,23 +25,16 @@ export const ReadingList: FC = () => {
       {savedBooks &&
         savedBooks.map((book, i) => (
           <div key={i}>
-            <h2>{book.title}</h2>
-            {book.authors && (
-              <div>
-                {book.authors.length >= 2 ? 'Authors:' : 'Author:'}
-                {book.authors.map((author, i) => (
-                  <p key={i}> {author}</p>
-                ))}
-              </div>
-            )}
-            {book.publishingCompany && (
-              <p>Publisher: {book.publishingCompany}</p>
-            )}
-            <div>
-              <button type="button" onClick={() => handleRemove(book.id)}>
-                Remove From Reading List
-              </button>
-            </div>
+            <Book
+              id={book.id}
+              title={book.title}
+              authors={book.authors}
+              publishingCompany={book.publishingCompany}
+              saved={book.saved}
+            />
+            <button type="button" onClick={() => handleRemove(book.id)}>
+              Remove from Reading List
+            </button>
           </div>
         ))}
     </div>
