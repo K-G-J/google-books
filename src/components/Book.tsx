@@ -12,7 +12,7 @@ export const Book: FC<Ibook> = ({
   const [bookSaved, setBookSaved] = useState<boolean>(false);
 
   const handleSave = (): void => {
-    const savedArr = [
+    const savedArr: Ibook[] = [
       ...loadBooks(),
       { id, title, authors, publishingCompany, saved: true }
     ];

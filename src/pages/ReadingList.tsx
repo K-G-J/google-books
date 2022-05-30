@@ -11,7 +11,7 @@ export const ReadingList: FC = (): JSX.Element => {
     setSavedBooks(savedArr);
   }, []);
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (id: string): void => {
     let newArr: Ibook[] = savedBooks.filter((book) => book.id !== id);
     localStorage.setItem('books', JSON.stringify(newArr));
     setSavedBooks(newArr);
