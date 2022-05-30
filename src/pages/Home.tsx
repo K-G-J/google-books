@@ -38,6 +38,10 @@ export const Home: FC = () => {
       const { data } = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
       );
+      if (!data) {
+        alert('please enter a different search term');
+        setQuery('');
+      }
       const bookList: Ibook[] = [];
       data.items.map((item: IbookData) => {
         let bookObj:Ibook = {
@@ -51,6 +55,8 @@ export const Home: FC = () => {
       setBooks(bookList);
       setQuery('');
     } catch (err) {
+      alert('something went wrong, please try another search')
+      setQuery('');
       console.log(err);
     }
   };
@@ -69,7 +75,7 @@ export const Home: FC = () => {
       <button type="button" onClick={handleSearch}>
         Search
       </button>
-      {books.map((book, i) => (
+      {books && books.map((book, i) => (
         <Book
           id={book.id}
           title={book.title}

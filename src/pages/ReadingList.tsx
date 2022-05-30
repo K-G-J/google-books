@@ -9,12 +9,12 @@ export const ReadingList: FC = () => {
   useEffect(() => {
     let savedArr = loadBooks()
     setSavedBooks(savedArr)
-  })
+  }, [])
 
   const handleRemove = (id: string) => {
-    if (savedBooks) {
-      let newArr = savedBooks.filter(book => book.id !== id)
-    }
+    let newArr: Ibook[] = savedBooks.filter(book => book.id !== id)
+    localStorage.setItem('books', JSON.stringify(newArr))
+    setSavedBooks(newArr)
   }
   
   return (
