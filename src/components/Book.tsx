@@ -22,11 +22,11 @@ export const Book: FC<Ibook> = ({ id, title, authors, publishingCompany }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <div>
-        {authors.length >= 2 ? 'Authors' : 'Author' }
-        {authors && authors.map((author, i) => <p key={i}> {author}</p>)}
-      </div>
-      <p>{publishingCompany}</p>
+      {authors && <div>
+        {authors.length >= 2 ? 'Authors:' : 'Author:'}
+        {authors.map((author, i) => <p key={i}> {author}</p>)}
+      </div>}
+      {publishingCompany && <p>Publisher: {publishingCompany}</p>}
       <div>
         <button type="button" onClick={handleSave} disabled={saved}>
           {!saved ? 'Save to Reading List' : 'Saved!' }
