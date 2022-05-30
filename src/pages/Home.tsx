@@ -1,5 +1,5 @@
-import axios, { AxiosError } from 'axios';
 import { FC, useState } from 'react';
+import axios, { AxiosError } from 'axios';
 import { Book } from '../components/Book';
 
 export interface Ibook {
@@ -66,9 +66,10 @@ export const Home: FC = () => {
     } catch (err) {
       if (err instanceof Error) {
         console.log(`Error: ${err.message}`);
-        console.log(err)
+        console.log(err);
       }
       if (err instanceof AxiosError && err.response?.status != 400) {
+        console.log(err);
         setError('something went wrong, please try again');
         setTimeout(() => {
           setError('');

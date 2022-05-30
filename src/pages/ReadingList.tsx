@@ -19,7 +19,7 @@ export const ReadingList: FC = () => {
   
   return (
     <div>
-      {!savedBooks && <div>Reading list empty, search for some new books!</div>}
+      {!savedBooks.length && <div>Reading list empty, search for some new books!</div>}
       {savedBooks && savedBooks.map((book, i) => (
         <div key={i}>
           <h2>{book.title}</h2>
