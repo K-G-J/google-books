@@ -27,8 +27,8 @@ interface IbookData {
 }
 
 const styles = {
-  error: `m-6 left-5 text-red-500"`,
-  form: `flex bg-white justify-between border-2 rounded-sm p-2 left-5 m-6 sm:max-w-screen-sm text-stone-900"`,
+  error: `m-6 left-5 text-red-500`,
+  form: `flex bg-white justify-between border-2 rounded-sm p-2 left-5 m-6 sm:max-w-screen-sm text-stone-900`,
   input: `appearance-none bg-white px-4 py-2 pt-3 w-80`,
   button: `flex items-center justify-center px-3`
 };
