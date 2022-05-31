@@ -16,20 +16,14 @@ export const Navbar: FC = (): JSX.Element => {
       <nav className={styles.nav}>
         <div className={styles.navContainer}>
           <div className={styles.navDiv}>
-            <Link
-              className={styles.navLink}
-              to="/"
-            >
+            <Link className={styles.navLink} to="/">
               Home
             </Link>
           </div>
           <div className={styles.navFlex}>
             <ul className={styles.navUl}>
               <li>
-                <Link
-                  className={styles.navLink}
-                  to="/readinglist"
-                >
+                <Link className={styles.navLink} to="/readinglist">
                   Reading List
                 </Link>
               </li>

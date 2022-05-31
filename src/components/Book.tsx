@@ -27,7 +27,7 @@ export const Book: FC<Ibook> = ({
   };
 
   if (!id) {
-    return <div>Nothing matching those results, please try search</div>;
+    return <div>Nothing matching those results, please try another search</div>;
   }
 
   return (
