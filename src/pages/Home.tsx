@@ -26,6 +26,13 @@ interface IbookData {
   };
 }
 
+const styles = {
+  error: `m-6 left-5 text-red-500"`,
+  form: `flex bg-white justify-between border-2 rounded-sm p-2 left-5 m-6 sm:max-w-screen-sm text-stone-900"`,
+  input: `appearance-none bg-white px-4 py-2 pt-3 w-80`,
+  button: `flex items-center justify-center px-3`
+};
+
 export const Home: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const [books, setBooks] = useState<Ibook[]>([]);
@@ -83,24 +90,17 @@ export const Home: FC = (): JSX.Element => {
 
   return (
     <div>
-      {error && <p className="m-6 left-5 text-red-500">{error}</p>}
-      <form
-        className="flex bg-white justify-between border-2 rounded-sm p-2 left-5 m-6 sm:max-w-screen-sm text-stone-900"
-        onSubmit={handleSearch}
-      >
+      {error && <p className={styles.error}>{error}</p>}
+      <form className={styles.form} onSubmit={handleSearch}>
         <input
-          className="appearance-none bg-white px-4 py-2 pt-3 w-80"
+          className={styles.input}
           name="search"
           value={query}
           type="text"
           placeholder="search for books..."
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button
-          type="button"
-          onClick={handleSearch}
-          className="flex items-center justify-center px-3"
-        >
+        <button type="button" onClick={handleSearch} className={styles.button}>
           <svg
             className="w-6 h-6"
             fill="currentColor"

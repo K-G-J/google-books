@@ -3,6 +3,10 @@ import Book from '../components/Book';
 import { Ibook } from '../pages/Home';
 import { loadBooks } from '../utils/loadBooks';
 
+const styles = {
+  button: `bg-red-300 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg"`
+};
+
 export const ReadingList: FC = (): JSX.Element => {
   const [savedBooks, setSavedBooks] = useState<Ibook[]>([]);
 
@@ -20,7 +24,7 @@ export const ReadingList: FC = (): JSX.Element => {
   return (
     <div>
       {!savedBooks.length && (
-        <div className="ml-6 text-cyan-500">
+        <div className="ml-6 text-cyan-500 text-xl">
           Reading list empty, search for some new books!
         </div>
       )}
@@ -35,7 +39,7 @@ export const ReadingList: FC = (): JSX.Element => {
               saved={book.saved}
             />
             <button
-              className="ml-6 bg-red-300 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg"
+              className={styles.button}
               type="button"
               onClick={() => handleRemove(book.id)}
             >

@@ -2,6 +2,12 @@ import { FC, useState } from 'react';
 import { Ibook } from '../pages/Home';
 import { loadBooks } from '../utils/loadBooks';
 
+const styles = {
+  container: `text-gray-600 body-font mb-4 ml-10`,
+  title: `text-gray-600 text-xl text-bold`,
+  button: `bg-cyan-500 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg"`
+};
+
 export const Book: FC<Ibook> = ({
   id,
   title,
@@ -25,8 +31,8 @@ export const Book: FC<Ibook> = ({
   }
 
   return (
-    <div className="text-gray-600 body-font mb-4 ml-10">
-      <h2 className="text-gray-600 text-xl text-bold">{title}</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>{title}</h2>
       {authors && (
         <div className="text-gray-500">
           {authors.length >= 2 ? 'Authors:' : 'Author:'}
@@ -38,7 +44,7 @@ export const Book: FC<Ibook> = ({
       {publishingCompany && <p className="text-gray-400">Publisher: {publishingCompany}</p>}
       {!saved && (
         <button
-          className="bg-cyan-500 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg"
+          className={styles.button}
           type="button"
           onClick={handleSave}
           disabled={bookSaved}
