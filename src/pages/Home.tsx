@@ -52,7 +52,7 @@ export const Home: FC = (): JSX.Element => {
       const { data } = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
       );
-      if (!data) {
+      if (!data.items) {
         setError('please enter a different search term');
         setTimeout(() => {
           setError('');

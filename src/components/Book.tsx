@@ -41,7 +41,9 @@ export const Book: FC<Ibook> = ({
           ))}
         </div>
       )}
-      {publishingCompany && <p className="text-gray-400">Publisher: {publishingCompany}</p>}
+      {publishingCompany && (
+        <p className="text-gray-400">Publisher: {publishingCompany}</p>
+      )}
       {!saved && (
         <button
           className={styles.button}
