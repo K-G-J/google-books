@@ -25,19 +25,24 @@ export const Book: FC<Ibook> = ({
   }
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="text-gray-600 body-font mb-4 ml-10">
+      <h2 className="text-gray-600 text-xl text-bold">{title}</h2>
       {authors && (
-        <div>
+        <div className="text-gray-500">
           {authors.length >= 2 ? 'Authors:' : 'Author:'}
           {authors.map((author, i) => (
             <p key={i}> {author}</p>
           ))}
         </div>
       )}
-      {publishingCompany && <p>Publisher: {publishingCompany}</p>}
+      {publishingCompany && <p className="text-gray-400">Publisher: {publishingCompany}</p>}
       {!saved && (
-        <button type="button" onClick={handleSave} disabled={bookSaved}>
+        <button
+          className="bg-cyan-500 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg"
+          type="button"
+          onClick={handleSave}
+          disabled={bookSaved}
+        >
           {!bookSaved ? 'Save to Reading List' : 'Saved!'}
         </button>
       )}

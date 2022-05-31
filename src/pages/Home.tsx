@@ -26,7 +26,7 @@ interface IbookData {
   };
 }
 
-export const Home: FC = ():JSX.Element => {
+export const Home: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const [books, setBooks] = useState<Ibook[]>([]);
   const [error, setError] = useState<string>('');
@@ -83,22 +83,38 @@ export const Home: FC = ():JSX.Element => {
 
   return (
     <div>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSearch}>
+      {error && <p className="m-6 left-5 text-red-500">{error}</p>}
+      <form
+        className="flex bg-white justify-between border-2 rounded-sm p-2 left-5 m-6 sm:max-w-screen-sm text-stone-900"
+        onSubmit={handleSearch}
+      >
         <input
+          className="appearance-none bg-white px-4 py-2 pt-3 w-80"
           name="search"
           value={query}
           type="text"
           placeholder="search for books..."
           onChange={(e) => setQuery(e.target.value)}
         />
+        <button
+          type="button"
+          onClick={handleSearch}
+          className="flex items-center justify-center px-3"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
+          </svg>
+          Search
+        </button>
       </form>
-      <button type="button" onClick={handleSearch}>
-        Search
-      </button>
       {books &&
         books.map((book, i) => (
-          <div key={i}>
+          <div key={i} className="flex">
             <Book
               id={book.id}
               title={book.title}

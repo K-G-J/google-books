@@ -20,7 +20,9 @@ export const ReadingList: FC = (): JSX.Element => {
   return (
     <div>
       {!savedBooks.length && (
-        <div>Reading list empty, search for some new books!</div>
+        <div className="ml-6 text-cyan-500">
+          Reading list empty, search for some new books!
+        </div>
       )}
       {savedBooks &&
         savedBooks.map((book, i) => (
@@ -32,7 +34,11 @@ export const ReadingList: FC = (): JSX.Element => {
               publishingCompany={book.publishingCompany}
               saved={book.saved}
             />
-            <button type="button" onClick={() => handleRemove(book.id)}>
+            <button
+              className="ml-6 bg-red-300 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg"
+              type="button"
+              onClick={() => handleRemove(book.id)}
+            >
               Remove from Reading List
             </button>
           </div>
