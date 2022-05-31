@@ -4,7 +4,7 @@ import { Ibook } from '../pages/Home';
 import { loadBooks } from '../utils/loadBooks';
 
 const styles = {
-  button: `bg-red-300 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg"`
+  button: `ml-6 mb-6 bg-red-300 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg`
 };
 
 export const ReadingList: FC = (): JSX.Element => {

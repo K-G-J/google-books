@@ -3,9 +3,9 @@ import { Ibook } from '../pages/Home';
 import { loadBooks } from '../utils/loadBooks';
 
 const styles = {
-  container: `text-gray-600 body-font mb-4 ml-10`,
+  container: `mb-1 text-gray-600 body-font ml-10`,
   title: `text-gray-600 text-xl text-bold`,
-  button: `bg-cyan-500 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg"`
+  button: `mb-6 bg-cyan-500 hover:scale-105 drop-shadow-md shadow-cla-blue px-4 py-1 rounded-lg`
 };
 
 export const Book: FC<Ibook> = ({
